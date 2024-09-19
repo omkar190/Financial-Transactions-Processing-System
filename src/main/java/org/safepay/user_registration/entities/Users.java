@@ -1,31 +1,39 @@
 package org.safepay.user_registration.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     Integer userId;
 
     @NotNull
-    String userName;
+    @Column(name = "user_name")
+    String username;
 
     @NotNull
     String surname;
 
     @NotNull
+    @Column(name = "mob_no")
     String mobNo;
 
     @NotNull
+    @Column(name = "email_id")
     String emailId;
 
     @NotNull
-    String userPassWord;
+    @Column(name = "user_password")
+    String userPassword;
 
+    @Column(name = "is_active")
+    Character isActive;
 }
