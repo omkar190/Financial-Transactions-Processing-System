@@ -38,7 +38,7 @@ public class WebSecurityConfigDevEnv {
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())
-                .csrf(csrf  -> csrf.ignoringRequestMatchers("/h2-console/**"))
+                .csrf(csrf  -> csrf.ignoringRequestMatchers("/**"))
                 .headers(headers -> headers
                         .frameOptions(HeadersConfigurer.FrameOptionsConfig::disable));
         return http.build();

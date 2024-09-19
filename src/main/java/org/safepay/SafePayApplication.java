@@ -9,5 +9,4 @@ public class SafePayApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SafePayApplication.class, args);
 	}
-
 }
