@@ -21,7 +21,10 @@ public class NewUserRegistrationController {
 
     @PostMapping("/Sign-up")
     public ResponseEntity<String> acceptIncomingUserDetails(@Valid @RequestBody NewUserDTO newUserDetails){
+
+        //Validates and passes the received user data to service for new user registration.
         return ResponseEntity.ok(newUserRegistrationService.registerNewUser(newUserDetails));
+
     }
 
 }

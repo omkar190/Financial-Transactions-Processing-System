@@ -14,6 +14,7 @@ import java.util.Map;
 @RestControllerAdvice
 public class ExceptionHandlerClassForNewUserRegistrations {
 
+    //If finds any value which must not be null.
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String,String>> handleNullValueExceptions(MethodArgumentNotValidException ex)
     {
@@ -26,6 +27,7 @@ public class ExceptionHandlerClassForNewUserRegistrations {
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 
+    //If any constraint is violated (e.g. allowed 12 characters but received 14).
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<Map<String,String>> handleLimitExceptions(ConstraintViolationException ex)
     {
@@ -38,6 +40,7 @@ public class ExceptionHandlerClassForNewUserRegistrations {
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 
+    //If any other issues arise, as we progress we can add more specific error handlers.
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleAllOtherExceptions(Exception ex){
         String error = "Oops...! Please double check the data if all the parameters are present and all are appropriately filled.";

@@ -6,6 +6,8 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+//Enforces all the constraints to filter and pass only the valid data which can be bound to Users.Entity class for saving the new user in the database.
+
 @AllArgsConstructor
 @Getter
 public class NewUserDTO {

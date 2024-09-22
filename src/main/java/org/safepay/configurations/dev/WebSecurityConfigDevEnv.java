@@ -34,11 +34,12 @@ public class WebSecurityConfigDevEnv {
         return new BCryptPasswordEncoder();
     }
 
+    //Enforces Spring Security on accessing APIs
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/OK","/h2-console/**").permitAll()
+                        .requestMatchers("/OK","/h2-console/**", "/verify-account/new-user").permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())
@@ -48,6 +49,7 @@ public class WebSecurityConfigDevEnv {
         return http.build();
     }
 
+    //Temporary, for H2-Console and database testing
     @Bean
     public UserDetailsService userDetailsService(){
 
@@ -59,6 +61,5 @@ public class WebSecurityConfigDevEnv {
 
         return new InMemoryUserDetailsManager(user);
     }
-
 
 }

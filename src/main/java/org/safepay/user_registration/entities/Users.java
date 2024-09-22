@@ -5,6 +5,10 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
+//Represents users table
+
 @Entity
 @Getter
 @Setter
@@ -36,4 +40,7 @@ public class Users {
 
     @Column(name = "is_active")
     Character isActive;
+
+    @Column(name = "id_activated_at")
+    LocalDateTime idActivatedAt;
 }
